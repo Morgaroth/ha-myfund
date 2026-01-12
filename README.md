@@ -51,6 +51,13 @@ docker-compose up -d
 ```
 
 This starts a Home Assistant instance with the integration pre-loaded. Access it at `http://localhost:8123`.
+
+To reset the testing environment (full cleanup):
+
+```bash
+docker-compose down -v
+docker system prune -f
+```
 To test, you need to first open the HomeAssistant UI and create an account. Then configure testing instance 
 of your integration.
 
