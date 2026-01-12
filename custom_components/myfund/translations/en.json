@@ -25,5 +25,39 @@
     "error": {
       "invalid_auth": "Invalid API key or portfolio name"
     }
+  },
+  "entity": {
+    "sensor": {
+      "portfolio": {
+        "name": "Portfolio"
+      },
+      "total_value": {
+        "name": "Total Value"
+      },
+      "daily_change": {
+        "name": "Daily Change"
+      },
+      "profit": {
+        "name": "Profit"
+      },
+      "weekly_change": {
+        "name": "Weekly Change"
+      },
+      "2weekly_change": {
+        "name": "2 Weekly Change"
+      },
+      "monthly_change": {
+        "name": "Monthly Change"
+      },
+      "3monthly_change": {
+        "name": "3 Monthly Change"
+      },
+      "6monthly_change": {
+        "name": "6 Monthly Change"
+      },
+      "yearly_change": {
+        "name": "Yearly Change"
+      }
+    }
   }
 }

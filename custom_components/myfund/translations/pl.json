@@ -14,5 +14,39 @@
     "error": {
       "invalid_auth": "Nieprawidłowy klucz API lub nazwa portfela"
     }
+  },
+  "entity": {
+    "sensor": {
+      "portfolio": {
+        "name": "Portfel"
+      },
+      "total_value": {
+        "name": "Wartość całkowita"
+      },
+      "daily_change": {
+        "name": "Zmiana dzienna"
+      },
+      "profit": {
+        "name": "Zysk"
+      },
+      "weekly_change": {
+        "name": "Zmiana tygodniowa"
+      },
+      "2weekly_change": {
+        "name": "Zmiana 2-tygodniowa"
+      },
+      "monthly_change": {
+        "name": "Zmiana miesięczna"
+      },
+      "3monthly_change": {
+        "name": "Zmiana 3-miesięczna"
+      },
+      "6monthly_change": {
+        "name": "Zmiana 6-miesięczna"
+      },
+      "yearly_change": {
+        "name": "Zmiana roczna"
+      }
+    }
   }
 }

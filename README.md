@@ -40,7 +40,16 @@ A Home Assistant custom integration for tracking MyFund.pl portfolio data.
 
 ## Sensors
 
-- `sensor.myfund_[portfolio_name]_total_value`: Portfolio total value in PLN
+- `sensor.myfund_[portfolio_name]`: General portfolio sensor with total value as main value and all metrics as attributes
+- `sensor.myfund_[portfolio_name]_total_value`: Portfolio total value in wallet currency
+- `sensor.myfund_[portfolio_name]_daily_change`: Daily change percentage
+- `sensor.myfund_[portfolio_name]_profit`: Total profit in wallet currency
+- `sensor.myfund_[portfolio_name]_weekly_change`: Weekly change percentage
+- `sensor.myfund_[portfolio_name]_2weekly_change`: 2-week change percentage
+- `sensor.myfund_[portfolio_name]_monthly_change`: Monthly change percentage
+- `sensor.myfund_[portfolio_name]_3monthly_change`: 3-month change percentage
+- `sensor.myfund_[portfolio_name]_6monthly_change`: 6-month change percentage
+- `sensor.myfund_[portfolio_name]_yearly_change`: Yearly change percentage
 
 ## Testing
 
