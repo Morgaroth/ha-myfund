@@ -3,3 +3,5 @@
 *.iml
 .run
 
+/testing/ha-container-config/
+*.pyc

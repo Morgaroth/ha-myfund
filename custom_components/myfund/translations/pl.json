@@ -1,0 +1,18 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Konfiguracja MyFund",
+        "description": "Skonfiguruj połączenie z portfelem MyFund",
+        "data": {
+          "wallet_name": "Nazwa portfela",
+          "api_key": "Klucz API",
+          "update_interval": "Interwał aktualizacji (minuty)"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Nieprawidłowy klucz API lub nazwa portfela"
+    }
+  }
+}

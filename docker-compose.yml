@@ -1,0 +1,13 @@
+services:
+  homeassistant:
+    container_name: homeassistant-myfund-testing
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    volumes:
+      - ./testing/ha-container-config:/config
+      - ./testing/configuration.yaml:/config/configuration.yaml
+      - ./custom_components/myfund:/config/custom_components/myfund
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+    user: "1000:1000"

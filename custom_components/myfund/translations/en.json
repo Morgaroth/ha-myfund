@@ -1,0 +1,29 @@
+{
+  "options": {
+    "step": {
+      "init": {
+        "title": "MyFund Options",
+        "description": "Configure MyFund integration options",
+        "data": {
+          "update_interval": "Update Interval (minutes)"
+        }
+      }
+    }
+  },
+  "config": {
+    "step": {
+      "user": {
+        "title": "MyFund Integration Setup",
+        "description": "Configure your MyFund portfolio connection",
+        "data": {
+          "wallet_name": "Portfolio Name",
+          "api_key": "API Key",
+          "update_interval": "Update Interval (minutes)"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid API key or portfolio name"
+    }
+  }
+}

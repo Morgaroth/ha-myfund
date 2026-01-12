@@ -1,0 +1,10 @@
+{
+  "domain": "myfund",
+  "name": "MyFund",
+  "codeowners": ["@mateusz"],
+  "config_flow": true,
+  "documentation": "https://github.com/mateusz/ha-myfund",
+  "requirements": ["aiohttp"],
+  "version": "1.0.0",
+  "iot_class": "cloud_polling"
+}
