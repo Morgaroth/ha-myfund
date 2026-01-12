@@ -42,6 +42,18 @@ A Home Assistant custom integration for tracking MyFund.pl portfolio data.
 
 - `sensor.myfund_[portfolio_name]_total_value`: Portfolio total value in PLN
 
+## Testing
+
+For development and testing, use the provided Docker Compose setup:
+
+```bash
+docker-compose up -d
+```
+
+This starts a Home Assistant instance with the integration pre-loaded. Access it at `http://localhost:8123`.
+To test, you need to first open the HomeAssistant UI and create an account. Then configure testing instance 
+of your integration.
+
 ## API Information
 
 This integration uses the MyFund.pl API which caches data for 5 minutes. Setting update intervals below 5 minutes won't provide fresher data.
