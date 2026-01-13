@@ -18,8 +18,16 @@ async def async_setup_entry(
         async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up MyFund sensor based on a config entry."""
+    _LOGGER.debug("Setting up MyFund sensors for entry: %s", config_entry.entry_id)
+    
     coordinator = MyFundDataUpdateCoordinator(hass, config_entry)
     await coordinator.async_config_entry_first_refresh()
+    
+    # Store coordinator in hass.data for proper lifecycle management
+    hass.data.setdefault("myfund", {})
+    hass.data["myfund"][config_entry.entry_id] = coordinator
+    
+    _LOGGER.debug("Coordinator setup complete, creating entities")
 
     entities = [
         MyFundPortfolioSensor(coordinator, config_entry),
@@ -35,3 +43,4 @@ async def async_setup_entry(
     ]
 
     async_add_entities(entities)
+    _LOGGER.debug("Added %d entities for MyFund integration", len(entities))

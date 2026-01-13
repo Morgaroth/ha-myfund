@@ -3,20 +3,21 @@ import logging
 from homeassistant.components.sensor import SensorEntity, SensorDeviceClass
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.entity import DeviceInfo
+from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from custom_components.myfund.update_coordinator import MyFundDataUpdateCoordinator
 
 _LOGGER = logging.getLogger(__name__)
 
 
-class MyFundPortfolioSensor(SensorEntity):
+class MyFundPortfolioSensor(CoordinatorEntity, SensorEntity):
     """General MyFund portfolio sensor with all data as attributes."""
     
     _attr_has_entity_name = True
 
     def __init__(self, coordinator: MyFundDataUpdateCoordinator, config_entry: ConfigEntry) -> None:
         """Initialize the sensor."""
-        self.coordinator = coordinator
+        super().__init__(coordinator)
         self._attr_translation_key = "portfolio"
         self._attr_unique_id = f"myfund_{config_entry.entry_id}"
         self._attr_device_class = SensorDeviceClass.MONETARY
@@ -65,20 +66,15 @@ class MyFundPortfolioSensor(SensorEntity):
             "currency": portfel.get("waluta"),
         }
 
-    @property
-    def available(self) -> bool:
-        """Return if entity is available."""
-        return self.coordinator.last_update_success
 
-
-class MyFundTotalValueSensor(SensorEntity):
+class MyFundTotalValueSensor(CoordinatorEntity, SensorEntity):
     """Representation of MyFund total portfolio value sensor."""
     
     _attr_has_entity_name = True
 
     def __init__(self, coordinator: MyFundDataUpdateCoordinator, config_entry: ConfigEntry) -> None:
         """Initialize the sensor."""
-        self.coordinator = coordinator
+        super().__init__(coordinator)
         self._attr_translation_key = "total_value"
         self._attr_unique_id = f"myfund_{config_entry.entry_id}_total_value"
         self._attr_device_class = SensorDeviceClass.MONETARY
@@ -102,19 +98,14 @@ class MyFundTotalValueSensor(SensorEntity):
             return self.coordinator.data.get("portfel", {}).get("waluta")
         return None
 
-    @property
-    def available(self) -> bool:
-        """Return if entity is available."""
-        return self.coordinator.last_update_success
 
-
-class MyFundDailyChangeSensor(SensorEntity):
+class MyFundDailyChangeSensor(CoordinatorEntity, SensorEntity):
     """Daily change sensor."""
     
     _attr_has_entity_name = True
 
     def __init__(self, coordinator: MyFundDataUpdateCoordinator, config_entry: ConfigEntry) -> None:
-        self.coordinator = coordinator
+        super().__init__(coordinator)
         self._attr_translation_key = "daily_change"
         self._attr_unique_id = f"myfund_{config_entry.entry_id}_daily_change"
         self._attr_native_unit_of_measurement = "%"
@@ -130,18 +121,14 @@ class MyFundDailyChangeSensor(SensorEntity):
             return self.coordinator.data.get("portfel", {}).get("zmianaDzienna")
         return None
 
-    @property
-    def available(self) -> bool:
-        return self.coordinator.last_update_success
 
-
-class MyFundProfitSensor(SensorEntity):
+class MyFundProfitSensor(CoordinatorEntity, SensorEntity):
     """Profit sensor."""
     
     _attr_has_entity_name = True
 
     def __init__(self, coordinator: MyFundDataUpdateCoordinator, config_entry: ConfigEntry) -> None:
-        self.coordinator = coordinator
+        super().__init__(coordinator)
         self._attr_translation_key = "profit"
         self._attr_unique_id = f"myfund_{config_entry.entry_id}_profit"
         self._attr_device_class = SensorDeviceClass.MONETARY
@@ -164,19 +151,15 @@ class MyFundProfitSensor(SensorEntity):
             return self.coordinator.data.get("portfel", {}).get("waluta")
         return None
 
-    @property
-    def available(self) -> bool:
-        return self.coordinator.last_update_success
 
-
-class MyFundChangeSensor(SensorEntity):
+class MyFundChangeSensor(CoordinatorEntity, SensorEntity):
     """Generic change sensor."""
     
     _attr_has_entity_name = True
 
     def __init__(self, coordinator: MyFundDataUpdateCoordinator, config_entry: ConfigEntry, field_key: str,
                  translation_key: str, unique_suffix: str) -> None:
-        self.coordinator = coordinator
+        super().__init__(coordinator)
         self.field_key = field_key
         self._attr_translation_key = translation_key
         self._attr_unique_id = f"myfund_{config_entry.entry_id}_{unique_suffix}_change"
@@ -195,7 +178,3 @@ class MyFundChangeSensor(SensorEntity):
                 return float(value.replace("+", ""))
             return value
         return None
-
-    @property
-    def available(self) -> bool:
-        return self.coordinator.last_update_success
