@@ -93,19 +93,27 @@ class MyFundOptionsFlowHandler(config_entries.OptionsFlow):
 
     def __init__(self, config_entry):
         """Initialize options flow."""
-        self.config_entry = config_entry
+        _LOGGER.debug("Options flow initialized for entry: %s", config_entry.entry_id)
 
     async def async_step_init(self, user_input=None):
         """Manage the options."""
+        _LOGGER.debug("Options step_init called with user_input: %s", user_input)
+        _LOGGER.debug("Current config_entry.data: %s", self.config_entry.data)
+        _LOGGER.debug("Current config_entry.options: %s", self.config_entry.options)
+        
         if user_input is not None:
+            _LOGGER.debug("Saving options: %s", user_input)
             return self.async_create_entry(title="", data=user_input)
 
+        current_interval = self.config_entry.options.get("update_interval") or self.config_entry.data.get("update_interval", 5)
+        _LOGGER.debug("Showing options form with current interval: %s", current_interval)
+        
         return self.async_show_form(
             step_id="init",
             data_schema=vol.Schema({
                 vol.Optional(
                     "update_interval",
-                    default=self.config_entry.options.get("update_interval", 5)
-                ): vol.All(vol.Coerce(int), vol.Range(min=1, max=60)),
+                    default=current_interval
+                ): vol.All(vol.Coerce(int), vol.Range(min=5, max=60)),
             })
         )

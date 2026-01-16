@@ -1,7 +1,7 @@
 services:
   homeassistant:
     container_name: homeassistant-myfund-testing
-    image: "ghcr.io/home-assistant/home-assistant:stable"
+    image: homeassistant/home-assistant:stable
     volumes:
       - ha-config:/config
       - ./testing/configuration.yaml:/config/configuration.yaml
