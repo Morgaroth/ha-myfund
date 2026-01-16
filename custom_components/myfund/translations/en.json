@@ -57,6 +57,12 @@
       },
       "yearly_change": {
         "name": "Yearly Change"
+      },
+      "mtd_change": {
+        "name": "MTD Change"
+      },
+      "ytd_change": {
+        "name": "YTD Change"
       }
     }
   }

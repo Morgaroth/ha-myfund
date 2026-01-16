@@ -40,6 +40,8 @@ async def async_setup_entry(
         MyFundChangeSensor(coordinator, config_entry, "zmiana3M", "3monthly_change", "3monthly"),
         MyFundChangeSensor(coordinator, config_entry, "zmiana6M", "6monthly_change", "6monthly"),
         MyFundChangeSensor(coordinator, config_entry, "zmianaR", "yearly_change", "yearly"),
+        MyFundChangeSensor(coordinator, config_entry, "zmianaMdD", "mtd_change", "mtd"),
+        MyFundChangeSensor(coordinator, config_entry, "zmianaRdD", "ytd_change", "ytd"),
     ]
 
     async_add_entities(entities)

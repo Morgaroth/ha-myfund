@@ -46,6 +46,12 @@
       },
       "yearly_change": {
         "name": "Zmiana roczna"
+      },
+      "mtd_change": {
+        "name": "Zmiana od początku miesiąca"
+      },
+      "ytd_change": {
+        "name": "Zmiana od początku roku"
       }
     }
   }

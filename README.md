@@ -11,7 +11,7 @@ A Home Assistant custom integration for tracking MyFund.pl portfolio data.
 ## Features
 
 - Track portfolio total value in PLN
-- Configurable update intervals (5-60 minutes)
+- Configurable update intervals (min 5 minutes due to API caching)
 - Secure API key storage
 - Multiple portfolio support
 
@@ -50,6 +50,8 @@ A Home Assistant custom integration for tracking MyFund.pl portfolio data.
 - `sensor.myfund_[portfolio_name]_3monthly_change`: 3-month change percentage
 - `sensor.myfund_[portfolio_name]_6monthly_change`: 6-month change percentage
 - `sensor.myfund_[portfolio_name]_yearly_change`: Yearly change percentage
+- `sensor.myfund_[portfolio_name]_mtd_change`: Month-to-date change percentage
+- `sensor.myfund_[portfolio_name]_ytd_change`: Year-to-date change percentage
 
 ## Testing
 

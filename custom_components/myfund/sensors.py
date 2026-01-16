@@ -63,6 +63,8 @@ class MyFundPortfolioSensor(CoordinatorEntity, SensorEntity):
             "3monthly_change": parse_change(portfel.get("zmiana3M")),
             "6monthly_change": parse_change(portfel.get("zmiana6M")),
             "yearly_change": parse_change(portfel.get("zmianaR")),
+            "mtd_change": parse_change(portfel.get("zmianaMdD")),
+            "ytd_change": parse_change(portfel.get("zmianaRdD")),
             "currency": portfel.get("waluta"),
         }
 
