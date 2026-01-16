@@ -11,7 +11,7 @@ permissions:
 jobs:
   release:
     # Hard regex validation (prevents v1.2, v1.2.3.4, v1.2.x, etc.)
-    if: github.ref_name =~ '^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$'
+    if: matches(github.ref_name, '^v(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$')
     runs-on: ubuntu-latest
 
     steps:
