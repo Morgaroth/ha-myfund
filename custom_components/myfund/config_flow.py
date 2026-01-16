@@ -7,6 +7,7 @@ import async_timeout
 import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.core import callback
+from homeassistant.helpers import selector
 
 from . import DOMAIN
 
@@ -52,7 +53,9 @@ class MyFundConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema=vol.Schema({
                 vol.Required("wallet_name"): str,
                 vol.Required("api_key"): vol.All(str, vol.Length(min=1)),
-                vol.Optional("update_interval", default=5): vol.All(vol.Coerce(int), vol.Range(min=5, max=60)),
+                vol.Optional("update_interval", default=5): selector.NumberSelector(
+                    selector.NumberSelectorConfig(min=5, mode=selector.NumberSelectorMode.BOX)
+                ),
             }),
             errors=errors
         )
@@ -114,6 +117,8 @@ class MyFundOptionsFlowHandler(config_entries.OptionsFlow):
                 vol.Optional(
                     "update_interval",
                     default=current_interval
-                ): vol.All(vol.Coerce(int), vol.Range(min=5, max=60)),
+                ): selector.NumberSelector(
+                    selector.NumberSelectorConfig(min=5, mode=selector.NumberSelectorMode.BOX)
+                ),
             })
         )

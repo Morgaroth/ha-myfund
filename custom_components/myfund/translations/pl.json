@@ -7,7 +7,7 @@
         "data": {
           "wallet_name": "Nazwa portfela",
           "api_key": "Klucz API",
-          "update_interval": "Interwał aktualizacji (minuty)"
+          "update_interval": "Interwał aktualizacji (minuty, min. 5)"
         }
       }
     },

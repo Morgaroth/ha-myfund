@@ -5,7 +5,7 @@
         "title": "MyFund Options",
         "description": "Configure MyFund integration options",
         "data": {
-          "update_interval": "Update Interval (minutes)"
+          "update_interval": "Update Interval (minutes, min. 5)"
         }
       }
     }
@@ -18,7 +18,7 @@
         "data": {
           "wallet_name": "Portfolio Name",
           "api_key": "API Key",
-          "update_interval": "Update Interval (minutes)"
+          "update_interval": "Update Interval (minutes, min. 5)"
         }
       }
     },

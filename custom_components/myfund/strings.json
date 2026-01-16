@@ -5,6 +5,30 @@
         "data": {
           "api_key": {
             "type": "password"
+          },
+          "update_interval": {
+            "selector": {
+              "number": {
+                "min": 5,
+                "mode": "box"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "update_interval": {
+            "selector": {
+              "number": {
+                "min": 5,
+                "mode": "box"
+              }
+            }
           }
         }
       }
