@@ -4,6 +4,7 @@ from homeassistant.components.sensor import SensorEntity, SensorDeviceClass
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
+from homeassistant.components.sensor import SensorStateClass
 
 from custom_components.myfund.update_coordinator import MyFundDataUpdateCoordinator
 
@@ -20,6 +21,7 @@ class MyFundPortfolioSensor(CoordinatorEntity, SensorEntity):
         super().__init__(coordinator)
         self._attr_translation_key = "portfolio"
         self._attr_unique_id = f"myfund_{config_entry.entry_id}"
+        self._attr_state_class = SensorStateClass.MEASUREMENT
         self._attr_device_class = SensorDeviceClass.MONETARY
         self._attr_device_info = DeviceInfo(
             identifiers={("myfund", config_entry.entry_id)},
@@ -79,6 +81,7 @@ class MyFundTotalValueSensor(CoordinatorEntity, SensorEntity):
         super().__init__(coordinator)
         self._attr_translation_key = "total_value"
         self._attr_unique_id = f"myfund_{config_entry.entry_id}_total_value"
+        self._attr_state_class = SensorStateClass.MEASUREMENT
         self._attr_device_class = SensorDeviceClass.MONETARY
         self._attr_device_info = DeviceInfo(
             identifiers={("myfund", config_entry.entry_id)},
@@ -110,6 +113,7 @@ class MyFundDailyChangeSensor(CoordinatorEntity, SensorEntity):
         super().__init__(coordinator)
         self._attr_translation_key = "daily_change"
         self._attr_unique_id = f"myfund_{config_entry.entry_id}_daily_change"
+        self._attr_state_class = SensorStateClass.MEASUREMENT
         self._attr_native_unit_of_measurement = "%"
         self._attr_device_info = DeviceInfo(
             identifiers={("myfund", config_entry.entry_id)},
@@ -133,6 +137,7 @@ class MyFundProfitSensor(CoordinatorEntity, SensorEntity):
         super().__init__(coordinator)
         self._attr_translation_key = "profit"
         self._attr_unique_id = f"myfund_{config_entry.entry_id}_profit"
+        self._attr_state_class = SensorStateClass.MEASUREMENT
         self._attr_device_class = SensorDeviceClass.MONETARY
         self._attr_device_info = DeviceInfo(
             identifiers={("myfund", config_entry.entry_id)},
@@ -164,6 +169,7 @@ class MyFundChangeSensor(CoordinatorEntity, SensorEntity):
         super().__init__(coordinator)
         self.field_key = field_key
         self._attr_translation_key = translation_key
+        self._attr_state_class = SensorStateClass.MEASUREMENT
         self._attr_unique_id = f"myfund_{config_entry.entry_id}_{unique_suffix}_change"
         self._attr_native_unit_of_measurement = "%"
         self._attr_device_info = DeviceInfo(
